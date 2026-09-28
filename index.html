@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#132338">
+  <meta name="description" content="中英对照检索香港《主题性住户统计调查第82号报告书》的30项图表及主要数字，页码以英文版为准。">
+  <title>THS 82 · 图表速查 / Evidence Finder</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23132338'/%3E%3Crect x='9' y='12' width='30' height='5' rx='2' fill='%230f9b99'/%3E%3Crect x='39' y='12' width='16' height='5' rx='2' fill='%23f48439'/%3E%3Ctext x='9' y='50' fill='white' font-family='Arial,sans-serif' font-weight='bold' font-size='30'%3E82%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.mjs"></script>
+<link rel="stylesheet" href="/changelog.css">
+<script type="module" src="/changelog.mjs"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="masthead">
+      <div class="identity">
+        <span class="mark" aria-hidden="true"><span class="mark-teal"></span><span class="mark-orange"></span></span>
+        <div class="identity-text"><span class="eyebrow" data-i18n="eyebrow">政府统计处 · 主题性住户统计调查</span><span class="brand-title">THS 82 <span class="brand-separator">/</span> <span data-i18n="brand">图表速查</span></span></div>
+      </div>
+      <div class="mast-tools">
+        <div class="mast-meta"><span data-i18n="reportTopic">资讯科技使用情况和普及程度</span><span class="meta-divider" aria-hidden="true"></span><span data-i18n="surveyPeriod">2024 年 4—8 月</span></div>
+        <button type="button" id="changelog-open" class="changelog-button" aria-haspopup="dialog">更新记录</button>
+        <div class="language-switch" role="group" aria-label="显示语言 / Display language">
+          <button type="button" data-language="zh" aria-pressed="true" aria-label="切换至中英对照" title="中文说明与英文对照">中文</button>
+          <button type="button" data-language="en" aria-pressed="false" aria-label="Switch to English">EN</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="catalogue" aria-labelledby="catalogue-title">
+        <div class="catalogue-top">
+          <div class="heading-line"><div><p class="overline" data-i18n="indexOverline">图表索引</p><h1 id="catalogue-title" data-i18n="indexTitle">找到那张表，回到原文</h1></div><div class="count-badge" id="total-count">30 项</div></div>
+          <form role="search" id="search-form" class="search-box" autocomplete="off">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"></circle><path d="m16 16 5 5"></path></svg>
+            <label class="visually-hidden" for="search-input" data-i18n="searchLabel">搜索图表、页码或数字</label>
+            <input id="search-input" type="search" spellcheck="false" data-i18n-placeholder="searchPlaceholder" placeholder="表号、关键词或数据：Table 3.10 / 流动支付 / 65.6">
+            <kbd data-i18n-title="shortcutTitle" title="按 Ctrl 或 Command 加 K 搜索">⌘ K</kbd>
+          </form>
+          <div class="filters" role="group" data-i18n-aria-label="filtersLabel" aria-label="筛选图表">
+            <label class="filter"><span data-i18n="sectionLabel">章节</span><select id="section-filter" data-i18n-aria-label="sectionAria" aria-label="按章节筛选"><option value="all" data-i18n="allSections">全部章节</option></select></label>
+            <label class="filter"><span data-i18n="subsectionLabel">小标题</span><select id="subsection-filter" data-i18n-aria-label="subsectionAria" aria-label="按小标题筛选"><option value="all" data-i18n="allSubsections">全部小标题</option></select></label>
+            <label class="filter"><span data-i18n="typeLabel">形式</span><select id="type-filter" data-i18n-aria-label="typeAria" aria-label="按图表形式筛选"><option value="all" data-i18n="allTypes">全部形式</option><option value="Table" data-i18n="table">表格</option><option value="Chart" data-i18n="chart">图表</option><option value="Unnumbered table" data-i18n="unnumberedTable">未编号表</option></select></label>
+
+            <div class="filter topic-filter-group"><span id="topic-label" data-i18n="topicLabel">按问题层级筛选（多选取交集）</span><div id="topic-filter" role="group" aria-labelledby="topic-label"></div></div>
+          </div>
+          <div class="result-summary"><span id="result-count" data-i18n="loading">加载图表中…</span><button id="reset-filters" type="button" class="text-button" data-i18n="clearFilters" hidden>清除筛选</button></div>
+        </div>
+        <div class="results-scroll" id="results-scroll" tabindex="-1"><details id="matching-previews" class="matching-previews" open><summary><span data-i18n="matchingPreviews">匹配图表编号 / Matching exhibits</span><span id="preview-count" class="preview-count"></span></summary><div id="preview-gallery" class="preview-gallery" role="group" data-i18n-aria-label="matchingPreviews" aria-label="匹配图表编号"></div></details><div id="results" class="results" aria-live="polite"></div></div>
+      </section>
+
+      <section class="detail-panel" id="detail-panel" data-i18n-aria-label="detailAria" aria-label="选中的图表详情" aria-live="polite">
+        <div id="detail-content" class="detail-content"><div class="loading-card" data-i18n="detailLoading">正在整理报告中的图表…</div></div>
+      </section>
+    </main>
+
+    <footer class="page-footer"><span><span data-i18n="sourceLabel">资料来源：</span><i>Thematic Household Survey Report — Report No. 82</i>, C&amp;SD.</span><span data-i18n="sourceNote">中英文图表标题依照官方报告，页码以英文版为准。重点和解读提示为整理说明，未编号内容的索引标识由本站添加。</span></footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </div>
+<dialog id="changelog-dialog" aria-labelledby="changelog-title"><div class="changelog-heading"><h2 id="changelog-title">更新记录</h2><button type="button" id="changelog-close" autofocus aria-label="关闭">×</button></div><form id="changelog-unlock"><label for="changelog-password" id="changelog-password-label">请输入查看密码</label><input id="changelog-password" type="password" inputmode="numeric" autocomplete="off" required aria-describedby="changelog-error"><p id="changelog-error" role="alert"></p><button type="submit" id="changelog-submit">解锁</button></form><div id="changelog-entries" hidden></div></dialog>
+</body>
+</html>
